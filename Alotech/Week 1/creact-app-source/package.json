@@ -1,0 +1,21 @@
+{
+  "name": "creact-app",
+  "version": "1.0.3",
+  "main": "index.js",
+  "bin": {
+    "creact": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Automation",
+    "CLI",
+    "react",
+    "parcel",
+    "tailwindcss"
+  ],
+  "author": "ozgencdev",
+  "license": "ISC",
+  "description": "Simply structured react app"
+}
