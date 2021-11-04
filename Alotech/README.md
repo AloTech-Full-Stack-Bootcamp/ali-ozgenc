@@ -1,19 +1,28 @@
-<h1>WEEK 1</h1>
+# Week 2
 
-- Express ile static serve
-- Express ile path e göre serve heroku deployu ile
-- Application Server olarak Express ile path e göre serve digitalocean üzerinde deploy ettim, web server olarak nginx kullanıp ıp için domain name satın aldım certbot ile ssl sertifikası uyguladım nginx konfigürasyonuyla servera bağlanmak için ssh bağlantısı kullandım güvenlik amaçlı best practiceler olabildiğince yaptım root access kapatmak unattended-update yapmak nmap kullanmak gibi tek bir tcp connection kullanan http/2 yi kullandım birden fazla dosya için isteğinde bulununca yüklenme süresini arttırmak için ayrıca sunulan http sayfalarında google font ve bootstrap kullandım basitçe
-- Koa ile static serve ayrıca deploy heroku üzerinde
-- 2 farklı branch te abort ve stream örneği
-- Crud işlemleri
-- npmjs üzerinde paylaşılmış cli crud için alternatif bir proje npx creact-app yazarak bash kullanan terminalde denenebilir(npm ve node güncel olmalı)
-- Repl işlemini terminal üzerinde gerçekleştirdim
-- Mongodb den veri çeken bir Express server kurdum template engine olarak react kullandım html dosyaları dinamik olarak veritabanında veri çekerek cevaplanıyor( .env içerisiden bağlantı linki alınıdığından çalışmayacaktır onu çıkardım isteğe göre gösterebilirim)
+## Clean Blog
 
-<h1>Deploy Linkleri</h1>
+---
 
-[koa-static serve-deploy](https://koadeploy.herokuapp.com/)
+- Postlar yeni tarihten eskiye sıralanır her bir sayfa 3 post içerir
+- Pagination içerir
+- Eski gönderiler butonu ile tüm postlar tek sayfada sıralanabilir
+- Template engine olarak react kullanır
+- MVC patterni takip eder
+-
 
-[express-path-deploy](https://express-deploy-patika.herokuapp.com/)
+Projeyi çalıştırmak için
 
-[digitalocean-nginx-https-domain name-deploy](https://ozgencdev.me/)
+npm start
+
+## Araştırma Linkleri
+
+---
+
+### [Authencation ve Authorization - Slayt](Week_2/Authencation_Authorization.pptx)
+
+### [Neden mongoose kullanırız - Doküman](Week_2/Neden_mongoose_kullanırız.docx)
+
+### [Geospatial Indexing - Doküman](Week_2/Geospatial_Indexing.docx)
+
+### [Slug nedir - Doküman](Week_2/Slug_nedir.docx)
