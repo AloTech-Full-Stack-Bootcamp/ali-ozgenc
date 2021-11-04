@@ -2,8 +2,9 @@ const methodOverride = require("method-override");
 const express = require("express");
 const mongoose = require("mongoose");
 const multer = require("multer");
-require("dotenv").config();
 const app = express();
+require("dotenv").config();
+
 /* controllers implementation */
 const {
   indexGet,
@@ -15,7 +16,7 @@ const {
   postIdPut,
   postAddPost,
   notFound,
-} = require("./controller/agnosCont");
+} = require("./controller/pagePostControllers");
 
 /* database connection */
 mongoose.connect(process.env.MONGO, {
