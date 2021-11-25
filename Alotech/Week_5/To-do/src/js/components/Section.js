@@ -53,7 +53,7 @@ export default function Section(props) {
       return todos
         .filter((todo) => todo[1] === "uncompleted")
         .map((todo, index) => (
-          <li className={todo[1]} key={index}>
+          <li className={todo[1]} key={todo[2]}>
             <div className="view">
               <input
                 className="toggle"
@@ -70,15 +70,6 @@ export default function Section(props) {
                 }}
               />
               <label>{todo[0]}</label>
-              <button
-                className="destroy"
-                onClick={() => {
-                  setTodos((prev) => {
-                    prev.splice(index, 1);
-                    return [...prev];
-                  });
-                }}
-              ></button>
             </div>
           </li>
         ));
@@ -87,7 +78,7 @@ export default function Section(props) {
       return todos
         .filter((todo) => todo[1] === "completed")
         .map((todo, index) => (
-          <li className={todo[1]} key={index}>
+          <li className={todo[1]} key={todo[2]}>
             <div className="view">
               <input
                 className="toggle"
@@ -104,16 +95,6 @@ export default function Section(props) {
                 }}
               />
               <label>{todo[0]}</label>
-              <button
-                className="destroy"
-                onClick={() => {
-                  //silme işlemi
-                  setTodos((prev) => {
-                    prev.splice(index, 1);
-                    return [...prev];
-                  });
-                }}
-              ></button>
             </div>
           </li>
         ));
