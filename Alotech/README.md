@@ -1,30 +1,5 @@
-# Week 2
+# [Codesandbox Link for Test Cases - Homework 1](https://codesandbox.io/s/focused-easley-d1k4o?file=/src/index.js)
 
-## Clean Blog
+# [To-do Deploy Link - Homework 2](https://hardcore-ardinghelli-101d8c.netlify.app/)
 
----
-
-- Postlar yeni tarihten eskiye sıralanır her bir sayfa 3 post içerir
-- Pagination içerir
-- Eski gönderiler butonu ile tüm postlar tek sayfada sıralanabilir
-- Template engine olarak react kullanır
-- MVC patterni takip eder
--
-
-Projeyi çalıştırmak için
-
-npm start
-
-## [Clean Blog Heroku Link](https://clean-blog-v2-patika-ozgencdev.herokuapp.com/)
-
-## Araştırma Linkleri
-
----
-
-### [Authencation ve Authorization - Slayt](Week_2/Authencation_Authorization.pptx)
-
-### [Neden mongoose kullanırız - Doküman](Week_2/Neden_mongoose_kullanırız.docx)
-
-### [Geospatial Indexing - Doküman](Week_2/Geospatial_Indexing.docx)
-
-### [Slug nedir - Doküman](Week_2/Slug_nedir.docx)
+## Test etmek için proje klasörünü açın ve konsola <b>npm run start</b> yazın.
