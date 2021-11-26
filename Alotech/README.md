@@ -4,6 +4,6 @@ Week 4
 
 Week 5
 
-# [To-do Deploy Link - Homework 2](https://festive-haibt-d89809.netlify.app/)
+# [To-do Deploy Link - Homework 2](https://happy-lumiere-0eca87.netlify.app)
 
 ## Test etmek için proje klasörünü açın ve konsola <b>npm run start</b> yazın.
