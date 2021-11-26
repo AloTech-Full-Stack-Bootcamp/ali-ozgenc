@@ -1,5 +1,5 @@
 import "/src/css/index.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
 export default function Section(props) {
@@ -13,6 +13,7 @@ export default function Section(props) {
     active: false,
     completed: false,
   });
+  const [toggleAll, setToggleAll] = useState(false);
 
   //all active ve completed fragmentleri göstermek için
   function renderFragment(activeFragment) {
@@ -21,21 +22,77 @@ export default function Section(props) {
       return todos.map((todo, index) => (
         <li className={todo[1]} key={todo[2]}>
           <div className="view">
-            <input
-              className="toggle"
-              type="checkbox"
-              onChange={() => {
+            {toggleAll ? (
+              <input
+                className="toggle"
+                type="checkbox"
+                checked
+                onChange={() => {
+                  setTodos((prev) => {
+                    console.log("ses");
+                    prev[index][1] =
+                      prev[index][1] === "completed"
+                        ? "uncompleted"
+                        : "completed";
+                    return [...prev];
+                  });
+                }}
+              />
+            ) : (
+              <input
+                className="toggle"
+                type="checkbox"
+                onChange={() => {
+                  setTodos((prev) => {
+                    prev[index][1] =
+                      prev[index][1] === "completed"
+                        ? "uncompleted"
+                        : "completed";
+                    return [...prev];
+                  });
+                }}
+              />
+            )}
+
+            <label
+              onClick={() => {
                 setTodos((prev) => {
-                  console.log("ses");
-                  prev[index][1] =
-                    prev[index][1] === "completed"
-                      ? "uncompleted"
-                      : "completed";
+                  prev[index][3] = true;
                   return [...prev];
                 });
               }}
-            />
-            <label>{todo[0]}</label>
+            >
+              {todo[3] === true ? (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setTodos((prev) => {
+                      prev[index][3] = false;
+                      console.log(prev[index][3]);
+                      return [...prev];
+                    });
+                  }}
+                >
+                  <input
+                    className="editing"
+                    value={todo[0]}
+                    onChange={(e) => {
+                      setTodos((prev) => {
+                        prev[index][0] = e.target.value;
+                        return [...prev];
+                      });
+                    }}
+                    style={{
+                      border: "none",
+                      fontSize: "24px",
+                      color: "orange",
+                    }}
+                  />
+                </form>
+              ) : (
+                todo[0]
+              )}
+            </label>
             <button
               className="destroy"
               onClick={() => {
@@ -109,7 +166,7 @@ export default function Section(props) {
           onSubmit={(e) => {
             //her taskı id ve css classı ile kendine özel bir arrayde tutarız
             e.preventDefault();
-            setTodos([...todos, [task, "uncompleted", nanoid()]]);
+            setTodos([...todos, [task, "uncompleted", nanoid(), false]]);
             setTask("");
           }}
         >
@@ -118,27 +175,42 @@ export default function Section(props) {
             placeholder="What needs to be done?"
             value={task}
             onChange={(e) => setTask(e.target.value)}
-            autofocus
+            autoFocus
           />
         </form>
       </header>
 
       <section className="main">
-        <input
-          className="toggle-all"
-          type="checkbox"
+        {toggleAll === true ? (
+          <input className="toggle-all" type="checkbox" checked />
+        ) : (
+          <input className="toggle-all" type="checkbox" />
+        )}
+
+        <label
+          htmlFor="toggle-all"
           onClick={() => {
+            console.log("ses");
             setTodos((prev) => {
-              return [
-                ...prev.map((todo) => {
-                  todo[1] = "completed";
+              if (prev.every((todo) => todo[1] === "completed")) {
+                return prev.map((todo) => {
+                  todo[1] = "uncompleted";
                   return todo;
-                }),
-              ];
+                });
+              }
+              return prev.map((todo) => {
+                todo[1] = todo[1] === "uncompleted" ? "completed" : "completed";
+                return todo;
+              });
             });
+            if (todos.length === 0) {
+            } else {
+              setToggleAll(!toggleAll);
+            }
           }}
-        />
-        <label for="toggle-all">Mark all as complete</label>
+        >
+          Mark all as complete
+        </label>
 
         <ul className="todo-list">{renderFragment(activeFragment)}</ul>
       </section>
@@ -207,6 +279,8 @@ export default function Section(props) {
             setTodos((prev) => {
               return prev.filter((todo) => todo[1] !== "completed");
             });
+
+            setToggleAll(false);
           }}
         >
           Clear completed
