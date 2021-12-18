@@ -1,3 +1,3 @@
-# Hafta 8
+# Hafta 9
 
-Rest api için yapılanlar; Modeller baz alınarak Viewsets, Serializers ve Urls düzenlemek
+Rest api Like işlevselliği ve JWT auth entegrasyonu
