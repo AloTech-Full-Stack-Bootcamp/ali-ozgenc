@@ -6,6 +6,7 @@ from django.shortcuts import render,redirect
 from .models import *
 from .serializers import *
 
+# Permissions for the API
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all() #Query 
     serializer_class = UserSerializer
